@@ -80,3 +80,28 @@ To connect an FrSky S-Port Rx to AQ, a serial port an adapter is necessary -- sa
 [build your own](https://github.com/TauLabs/TauLabs/wiki/User-Guide:-FrSKY-S.PORT-telemetry#making-the-connection), make one out of two existing FrSky adapters 
 ([FUC-1 and SPC (which is just a diode)](http://ardupilot.org/copter/docs/common-frsky-telemetry.html#diy-cable-for-x-receivers)), or buy some pre-made ones eg. 
 [https://www.airborneprojects.com/product/apm-mavlink-to-frsky-smartport-converter/]  or  [http://www.craftandtheoryllc.com/product-category/telemetry/].
+
+
+## Author
+
+    Maxim Paperno - MPaperno@WorldDesign.com
+    https://github.com/mpaperno/AQ-QTx-Lua
+
+
+## Copyright, License, and Disclaimer
+
+Copyright (c)2015-2016 by Maxim Paperno. All rights reserved.
+
+       This program is free software: you can redistribute it and/or modify
+       it under the terms of the GNU General Public License as published by
+       the Free Software Foundation, either version 3 of the License, or
+       (at your option) any later version.
+
+       This program is distributed in the hope that it will be useful,
+       but WITHOUT ANY WARRANTY; without even the implied warranty of
+       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+       GNU General Public License for more details.
+
+       You should have received a copy of the GNU General Public License
+       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    
