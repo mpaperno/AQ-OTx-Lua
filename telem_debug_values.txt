@@ -1,0 +1,88 @@
+This file is for use with OpenTx Simulator (press F4 for sim UI, F6 for debug console)
+Paste numeric value into corresponding field in telemetry sim  (include "0x" for hex notation).
+--------------------------
+
+FUEL - flight mode/stat
+
+0 - first 14 bits
+1 - next 14
+2 - last 4
+
+init seq:
+0
+0x4000
+0x8000
+
+0x01- ARMED
+0x02- ACTIVE
+0x04- AH
+0x08- PH
+0x20- MISN
+
+0x0100- READY
+0x0200- CAL
+0x1100- NO RC
+0x2100- bat lo
+
+0x4001- bat crit
+0x4400- DVH
+0x4800
+0x7000- at-ceil
+
+0x8002- HF-L
+
+
+-----------------------
+T1 - GPS status
+
+8557-  2D 3.65H
+
+12539- 3D 2.51H 
+28923- 3D 2.51V 
+
+12441- 3D 1.53H 
+28795- 3D 1.23V 
+45063- 3D 7 sats
+
+12311- 3D 0.23H 
+28695- 3D 0.23V 
+
+8064-  srch 39.68H
+8146-  srch 40.5H
+24530- srch 40.5H
+
+-----------------------
+T2 - various
+
+5900- heading 59.00 deg
+
+0x235F- temp 86.3*
+
+0x4059- batt %
+
+0x6007- wpt #7
+
+0x9212- wp dist 5.3m
+
+-----------------------
+RPM - text message
+
+21605- Te
+62324- st
+0- EOL
+
+13157- 3T
+
+-----------------------
+GPS
+
+0x17031C00- 23:03:28 (GMT)
+
+0x193480F- N
+0x8065C02C-E
+2154151980
+
+-----------------------
+CELLS
+
+0x6D66D220 - 2/2C @ 3.49/3.50
