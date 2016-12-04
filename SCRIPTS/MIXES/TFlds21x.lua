@@ -32,28 +32,28 @@
 ]]
 
 g_fld = {
-	mainV   = "VFAS",
-	mainA   = "Curr",
-	mainW   = "Pwr",              -- calculated field (?)
-	mainAh  = "mAh",              -- calculated field
-	cellVlo = "CelL",             -- lowest cell value, calculated field
+	mainV   = "VFAS",             -- unit: V
+	mainA   = "Curr",             -- unit: A
+	mainW   = "Pwr",              -- calculated field: type: Multiply VFAS x Curr, unit: W
+	mainAh  = "mAh",              -- calculated field: type: Consumption, sensor: Curr
+	cellVlo = "CelL",             -- lowest cell value, calculated field: type Cell, sensor: Cells, Lowest
 	
 	txV     = "tx-voltage",
 	rssi    = "RSSI",
-	rpm     = "RPM",
-	fuel    = "FUEL",             -- ?
-	temp1   = "aqGS",             -- first temperature sensor (ID: 0x0400), contains GNSS status data
-	temp2   = "aqST",             -- second temperature sensor (ID: 0x0410), contains various AQ status data
+	rpm     = "RPM",              -- Text messages; unit: Raw
+	fuel    = "Fuel",             -- Flight mode data; unit: Raw
+	temp1   = "Tmp1",             -- first temperature sensor (ID: 0x0400), contains GNSS status data; unit: Raw
+	temp2   = "Tmp2",             -- second temperature sensor (ID: 0x0410), contains various AQ status data; unit: Raw
 	
-	alt     = "Alt",
-	vSpd    = "VSpd",
-	aSpd    = "ASpd",
+	alt     = "Alt",              -- pressure sensor altitude; unit: m
+	vSpd    = "VSpd",             -- unit: m/s
+	aSpd    = "ASpd",             -- unit: m/s
 	
-	gpsSpd  = "GSpd",
-	gpsAlt  = "GAlt",
-	gpsCrs  = "GCrs",             -- default for this is apparently "Hdg" which is just "wrong" in many ways... :)
+	gpsSpd  = "GSpd",             -- unit: m/s
+	gpsAlt  = "GAlt",             -- unit: m
+	gpsCrs  = "Hdg",              -- GPS Course (not heading)
 	
-	hmDist  = "GDst",             -- distance to "home", calculated field (between GPS.lat/lon and GPS.pilot-lat/lon)
+	hmDist  = "GDst",             -- distance to "home", calculated field: type: Dist, GPS Sensor: GPS, Alt. Sensor GAlt, unit: m
 	
 	-- suffix to append to string value name to get min/max
 	sfxMin  = "-",

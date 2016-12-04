@@ -31,9 +31,8 @@
 ]]
 
 
-local TIMID = 1			-- Which timer to show on the top line, 1 or 2.
+local TIMID = 1			-- Which timer to show on the top line, 1 or 2 (or 3 if firmware supports it).
 
---local aq = nil
 local page = 1
 local linesPerPage = 6
 local showMsgAge = false
@@ -46,7 +45,7 @@ local PANEL_H = FH	-- pixel height of top panel (header)
 TIMID = TIMID -1     -- actual timer index starts at zero
 
 local function run(event)
-	if checkAQLibs() ~= 0 then
+	if checkAQLibs == nil or checkAQLibs() ~= 0 then
 		return
 	end
 
@@ -169,7 +168,7 @@ local function run(event)
 	if (showMsgAge) then
 		ind = "C"
 	end
-	lcd.drawText(x+1, LCD_H-12, ind, TINSIZE)
+	lcd.drawText(x+1, LCD_H-12, ind, SMLSIZE)
 	
 --	if (event ~= 0) then
 --		print(event)

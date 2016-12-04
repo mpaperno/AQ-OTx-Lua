@@ -59,10 +59,12 @@ local function printNum(label, val, precision)
 end
 
 local function run(event)
-	if checkAQLibs() ~= 0 then
+	if checkAQLibs == nil or checkAQLibs() ~= 0 then
 		return
 	end
 	local ver, vradio, vmaj = getVersion()
+	
+	lcd.clear()
 	
 	nextRow = 1
 	nextCol = 1

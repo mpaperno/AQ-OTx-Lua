@@ -26,9 +26,9 @@ use in display scripts.  It also provides several outputs which can be used to s
 
 2. *DrawLib* - This is a collection of useful functions for drawing on the LCD (eg. circle or arrow), and also provides some conversion and formatting functions.
 
-3. *TFlds2xx* - This is a "compatibility layer" script to provide compatibility with OpenTx version 2.0 and 2.1.  v2.1 changed how all the telemetry fields are named,
+3. *TFlds2xx* - This are "compatibility layer" scripts to provide compatibility with OpenTx version 2.0 and 2.1.  v2.1 changed how all the telemetry fields are named,
 so this method was used instead of needing two completely separate code bases for the different OTx versions. The exact file you want to use depends on the OTx version -- 
-`TFlds20x` for OpenTx 2.0.x and `TFlds21x` for OpenTx 2.1.x (and above, assuming the system doesn't change again).
+`TFlds20x` for OpenTx 2.0.x and `TFlds21x` for OpenTx 2.1.x (and above, assuming the system doesn't change again).  Use only one of these files, not both!
 
 To use *MIXES* scripts, first copy the **`.luac`** versions from the *SCRIPTS/MIXES* folder of this repo to the corresponding folder on your Taranis/Horus SD card.
 **Rename** them with a `.lua` extension (see [Plain-text vs. pre-compiled](#plain-text-vs-pre-compiled-versions) section).
@@ -37,7 +37,7 @@ Do this for each of the 3 scripts above.  Once done with all 3 and back on the *
 
 #### TELEMETRY scripts
 
-1. *telem1* - Main "all-in-one" telemetry desplay script showing many different values (see screenshot at top).
+1. *telem1* - Main "all-in-one" telemetry display script showing many different values (see screenshot at top).
 
 2. *telem1-light* - A simpler version of *telem1* with some features simply commented out. Use this as starting point for modifications -- and read the 
 [Plain-text vs. pre-compiled](#plain-text-vs-pre-compiled-versions) section.
@@ -52,8 +52,13 @@ To use *TELEMETRY* scripts:
 - **OpenTX 2.0:** You will need to create a folder on the SD card, inside the *SCRIPTS* folder, using the same name as your model (eg. "AutoQuad"). Remove all spaces from the folder name if
 you model name it has any.  Then put the `telemX.lua` files you want to use (or `.luac`, see below) in that folder.  Next time you select that model, the scripts will be loaded (long-press [PAGE] key to view them).
 
-- **OpenTX 2.1 (& later):** Simply copy the contents of the *TELEMETRY* folder from this repo to the *SCRIPTS/TELEMETRY* your SD card (create it if you don't have one already).  
+- **OpenTX 2.1 (& later):**
+
+  - Copy the contents of the *TELEMETRY* folder from this repo to the *SCRIPTS/TELEMETRY* your SD card (create it if you don't have one already).  
 You can then go into the model settings and select which display script(s) you want to run from this folder.  This way is much easier to share the same scripts between models.
+
+  - You will need to configure the telemetry sensors. For most of them you can go into the telemetry setup screen and use the "discover sensors" option.  A few other "calculated" sensors
+need to be set up manually.  See **[this screenshot](https://raw.githubusercontent.com/mpaperno/AQ-OTx-Lua/master/OTx2.1-sensor_setup.png)** to see the full setup (all the "custom" sensors here were auto-discovered).
 
 **For *telem1* script** you must use the pre-compiled `.luac` version, then rename if to `.lua` once on the SD card. The plain-text version is too large to load properly.  Read below for details.
 
@@ -62,7 +67,7 @@ You can then go into the model settings and select which display script(s) you w
 The scripts all come in two versions, plain-text (`.lua`) and pre-compiled "bytecode" versions (`.luac`).  The short story is that the memory on the Taranis/etc is very limited. 
 Large Lua scripts may consume too much memory to work at all.  One workaround is to pre-compile the scripts, which reduces memory usage considerably.
 
-**`.luac` files must be renamed to `.lua` on the Taranis before they will work.** Unfortunately OTx doesn't support the `.luac` naming convention yet.
+**`.luac` files must be renamed to `.lua` on the Taranis before they will work.** Unfortunately OTx doesn't support the `.luac` naming convention yet (but [we're working on it](https://github.com/opentx/opentx/issues/3318)).
 
 It will not be possible to run all the plain-text versions of the scripts on the actual radio (though they work fine in the OTx simulator). On the other hand there is no publicly
 available method to compile your own versions.

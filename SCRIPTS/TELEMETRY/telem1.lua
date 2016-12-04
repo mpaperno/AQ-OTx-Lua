@@ -68,14 +68,10 @@ DrawLib (dlib) provides a library of LCD drawing functions as well as some basic
 -- settings
 local SHOW_CURR  = false  -- show current (amps/w/mAh) measurements.  Press [MENU] button to toggle. This setting defines the default view. 
 local LMST       = 20    -- Last Message Show Timeout: seconds to display last text message received in the footer
-local TIMID      = 1     -- Which timer to show on the top line, 1 or 2. 
+local TIMID      = 1     -- Which timer to show on the top line, 1 or 2 (or 3 if firmware supports it). 
 local VSPD_SCAL  = 20    -- vertical speed graph scaling (deg. per meter/sec): 45 deg (constant) / 2.25 m/s (variable) = 20 degrees per meter. Eg. for double resolution: 45 / 1.125 = 40 */m
 local DIR_TYPE   = 1     -- 1=show actual compass direction to MAV; 2=compass dir. from mav (opposite of 1); 3=show relative heading from MAV heading to home; 4=mav course; 5=mav heading (if avail)
                          --    Quick-press [ENT] button to toggle through different direction types. This setting defines the default view. 
-
-TINSIZE = 0x0400			-- Tiny size font from lcd.h. Set this to =SMLSIZE if using sqt5 font (doesn't have TINSIZE)
---TINSIZE = SMLSIZE		-- uncomment this if using sqt5 font
---CONDENSED = 0x08		-- Condensed size font from lcd.h (not used)
 
 -- internals
 
@@ -508,7 +504,7 @@ local function run(event)
 	drawVSpeedGauge(LCD_W - LCD_H / 2 - 1, LCD_H / 2, LCD_H/2)
 	
 	-- [ENT] button prompt
-	lcd.drawText(LCD_W-4, LCD_H-PANEL_H-6, "C", TINSIZE)
+	lcd.drawText(LCD_W-4, LCD_H-PANEL_H-6, "C", SMLSIZE)
 	
 end
 
